@@ -1,0 +1,17 @@
+<header id="main-header">
+    
+    <a id="logo-header" href="#">
+      <span class="site-name">Tystab.tk</span>
+      <span class="site-desc">Diseño web / WordPress / Tutoriales</span>
+    </a> <!-- / #logo-header -->
+
+    <nav>
+      <ul>
+        <li *ngIf="!isToken()"><a href="#/login">Login</a></li>
+        <li><a href="#/dashboard">Dashboard</a></li>
+        <li *ngIf="isToken()"><a href="#" (click)="onLogout()" routerLinkActive="active">Logout</a></li>
+      </ul>
+    </nav><!-- / nav -->
+
+  </header><!-- / #main-header -->
+

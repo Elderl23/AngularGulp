@@ -1,0 +1,40 @@
+<my-menu></my-menu>
+<section id="main-content">
+  <article class="content">
+
+
+    <div class="container">  
+  <form id="contact" #loginForm="ngForm" (ngSubmit)="login()">
+    <h3>Login</h3>
+    <h4>Ingresa tus credenciales de autenticación</h4>
+
+
+    <fieldset>
+      <input type="text" placeholder="username" name="username" [(ngModel)]="model.username" #username="ngModel" ngControl="username"tabindex="1" required autofocus>
+      <span *ngIf="!username.valid && username.touched">El Nombre de Usuario es obligatorio</span>
+    </fieldset>
+
+    <fieldset>
+      <input type="password" placeholder="Password" name="password" [(ngModel)]="model.password" #password="ngModel" ngControl="password" tabindex="2" required>
+      <span *ngIf="!password.valid && password.touched">La Contraseña es obligatorio</span>
+    </fieldset>
+
+    <fieldset>
+      <div class="alertLogin" *ngIf="showAlert">
+          <strong>Oh!</strong> {{MsgAlert}}.
+      </div>
+    </fieldset>
+
+
+    <fieldset>
+      <button name="submit" type="submit" id="contact-submit" data-submit="...Sending">Submit</button>
+    </fieldset>
+    <!-- <p class="copyright">Designed by <a href="https://colorlib.com" target="_blank" title="Colorlib">Colorlib</a></p> -->
+  </form>
+</div>
+
+  <div  *ngIf="activateLoading" class="loading">Load
+    ing</div>
+  </article> <!-- /article -->
+</section> <!-- / #main-content -->
+
