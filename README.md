@@ -3,9 +3,9 @@ Angular2 with TypeScript and Gulp
 
 A basic Angular2 application with Gulp as build system.
 
-#### 1. Prerequisites
+#### 1. Requisitos previos
 
-*nodejs* must be installed on your system and the below global node packages must be installed:
+*nodejs* Debe estar instalado en su sistema y los paquetes de nodos globales a continuación deben instalarse:
 
 - gulp
 
@@ -27,41 +27,39 @@ A basic Angular2 application with Gulp as build system.
 
 > npm i -g ts-node@1.3.0
 
-#### 2. Cloning the repository
+#### 2. Clonando el repositorio
 
-Clone the repository:
+Clona el repositorio:
 
-> git clone https://github.com/kolorobot/angular2-typescript-gulp.git
+> git clone https://github.com/Elderl23/AngularGulp.git
 
 Navigate to `angular2-typescript-gulp` directory:
 
 > cd angular2-typescript-gulp
 
-#### 3. Installing dependencies
+#### 3. Instalando dependencias
 
-Install dependencies by running the following command:
+Instale las dependencias ejecutando el siguiente comando:
 
 > npm install
 
-`node_modules` and `typings` directories will be created during the install.
+`node_modules` and `typings` Los directorios se crearán durante la instalación.
 
-#### 4. Building the project
+#### 4. Construyendo el proyecto
 
-Build the project by running the following command:
+Genere el proyecto ejecutando el siguiente comando:
 
 > npm run clean & npm run build
 
-`build` directory will be created during the build
+`build` Directorio se creará durante la compilación
 
-#### 5. Starting the application
+#### 5. Inicio de la aplicación
 
-Start the application by running the following command:
+Inicie la aplicación ejecutando el siguiente comando:
 
 > npm start
-
-The application will be displayed in the browser.
 
 Resources
 ---------
 
-- [A step-by-step tutorial](http://blog.codeleak.pl/2016/03/quickstart-angular2-with-typescript-and.html)
+- [A step-by-step tutorial](http://tystab.tk/)
