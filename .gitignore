@@ -1,2 +1,7 @@
 .idea
 build
+
+.DS_Store
+respaldo/
+src/.DS_Store
+src/app/.DS_Store
