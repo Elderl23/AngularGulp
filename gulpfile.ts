@@ -79,13 +79,13 @@ gulp.task('watch', function () {
 
 
 gulp.task('war', function () {
-    gulp.src(["src/**/*", "!**/*.ts"])
+    gulp.src(["build/**/*", "!**/*.ts"])
         .pipe(war({
             welcome: 'index.html',
             displayName: 'Grunt WAR',
         }))
         .pipe(zip('myApp.war'))
-        .pipe(gulp.dest("build"));
+        .pipe(gulp.dest("/Users/restradaz/Documents/Desarrollo/jboss-eap-6.4/standalone/deployments/"));
  
 });
 
@@ -93,6 +93,6 @@ gulp.task('war', function () {
 /**
  * Build the project.
  */
-gulp.task("build", ['compile', 'resources', 'libs', 'war'], () => {
+gulp.task("build", ['compile', 'resources', 'libs'], () => {
     console.log("Building the project ...");
 });

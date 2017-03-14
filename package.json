@@ -6,6 +6,7 @@
     "clean": "gulp clean",
     "compile": "gulp compile",
     "build": "gulp build",
+    "war": "gulp war",
     "start": "concurrent --kill-others \"gulp watch\" \"lite-server\"",
     "postinstall": "typings install"
   },
