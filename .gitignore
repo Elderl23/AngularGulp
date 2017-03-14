@@ -5,3 +5,5 @@ build
 respaldo/
 src/.DS_Store
 src/app/.DS_Store
+
+npm-debug.log
