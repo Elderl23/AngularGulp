@@ -1,21 +1,17 @@
 import { CryptoJSInterface } from '../interfaces/CryptoJS';
 
-const CryptoJS = require('CryptoJS');
 
-import CryptoJS from 'CryptoJS';
-//import { CryptoJS } from 'lib/google-crypto-aes.min';
+import CryptoJS from 'crypto-js';
 
-
-//import CryptoJS = require('crypto-js');
-
-// import { CryptoJS } from 'CryptoJS';
-
-
+//import CryptoJS = require('CryptoJS');
 
 
 
 
 export class CryptoJSi {
+
+
+
   out;
   wordArray;
 
@@ -25,6 +21,10 @@ export class CryptoJSi {
   iv;
 
   protected repeatCadena(cadena, longitud): any{
+
+    console.log(cadena);
+    console.log(longitud);
+
     this.out = cadena.toString();
     while (this.out.length < longitud){
       this.out += cadena;
@@ -33,39 +33,44 @@ export class CryptoJSi {
   }
 
 
-  // protected keyBase64(cadena): any{
-  //   this.wordArray = null;
-  //   this.wordArray = CryptoJS.enc.Utf8.parse(this.repeatCadena(cadena, 16));
-  // }
+  protected keyBase64(cadena): any{
+    console.log(cadena);
+    this.wordArray = null;
+    this.wordArray = CryptoJS.enc.Utf8.parse(this.repeatCadena(cadena, 16));
+  }
 
-  // public encryptAES (value): any{
-  //   this.userSesion = '123456';
-  //   this.keyValue = this.keyBase64(this.userSesion.toString());
-  //   this.key = CryptoJS.enc.Base64.parse(this.keyValue);
-  //   this.iv = CryptoJS.enc.Base64.parse(this.keyValue);
+  public encryptAES (value): any{
+    this.userSesion = '123456';
 
-  //   value = value.replace(/Ñ/g, "ñ");
-  //   value = value.replace(/Ñ/g, "<N>");
-  //   value = value.replace(/Á/g, "á");
-  //   value = value.replace(/É/g, "é");
-  //   value = value.replace(/Í/g, "í");
-  //   value = value.replace(/Ó/g, "ó");
-  //   value = value.replace(/Ú/g, "ú");
+    console.log(value);
+    console.log(this.userSesion);
 
-  //   var textencryipted = CryptoJS.AES.encrypt(value.toString(), this.key, {
-  //       mode: CryptoJS.mode.CBC,
-  //       padding: CryptoJS.pad.Pkcs7,
-  //       iv: this.iv,
-  //   });
-  //   var encrypt2Value = CryptoJS.AES.encrypt(value.toString() + '<>' + textencryipted.toString(), this.key, {
-  //       mode: CryptoJS.mode.CBC,
-  //       padding: CryptoJS.pad.Pkcs7,
-  //       iv: this.iv,
-  //   });
+    this.keyValue = this.keyBase64(this.userSesion.toString());
+    this.key = CryptoJS.enc.Base64.parse(this.keyValue);
+    this.iv = CryptoJS.enc.Base64.parse(this.keyValue);
 
-  //   return encrypt2Value.toString();
+    value = value.replace(/Ñ/g, "ñ");
+    value = value.replace(/Ñ/g, "<N>");
+    value = value.replace(/Á/g, "á");
+    value = value.replace(/É/g, "é");
+    value = value.replace(/Í/g, "í");
+    value = value.replace(/Ó/g, "ó");
+    value = value.replace(/Ú/g, "ú");
 
-  // }
+    var textencryipted = CryptoJS.AES.encrypt(value.toString(), this.key, {
+        mode: CryptoJS.mode.CBC,
+        padding: CryptoJS.pad.Pkcs7,
+        iv: this.iv,
+    });
+    var encrypt2Value = CryptoJS.AES.encrypt(value.toString() + '<>' + textencryipted.toString(), this.key, {
+        mode: CryptoJS.mode.CBC,
+        padding: CryptoJS.pad.Pkcs7,
+        iv: this.iv,
+    });
+
+    return encrypt2Value.toString();
+
+  }
 
 
 

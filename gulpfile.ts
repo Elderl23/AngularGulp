@@ -60,7 +60,8 @@ gulp.task("libs", () => {
             'rxjs/**/*.js',
             'zone.js/dist/**',
             '@angular/**/bundles/**',
-            'crypto/google-crypto-aes.min.js'
+            'hammerjs/hammer.js',
+            'crypto-js/crypto-js.js'
         ], {cwd: "node_modules/**"}) /* Glob required here. */
         .pipe(gulp.dest("build/lib"));
 });

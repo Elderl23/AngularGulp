@@ -19,7 +19,9 @@
             '@angular/forms': 'npm:@angular/forms/bundles/forms.umd.js',
             // other libraries
             'rxjs': 'npm:rxjs',
-            'CryptoJS': 'npm:crypto/google-crypto-aes.min.js'
+            '@angular/material': 'npm:@angular/material/bundles/material.umd.js',
+            'hammerjs': 'npm:hammerjs/hammer.js',
+            'crypto-js': 'npm:crypto-js/crypto-js.js'
         },
         // packages tells the System loader how to load when no filename and/or no extension
         packages: {
@@ -28,6 +30,9 @@
                 defaultExtension: 'js'
             },
             rxjs: {
+                defaultExtension: 'js'
+            },
+            CryptoJS: {
                 defaultExtension: 'js'
             }
         }
