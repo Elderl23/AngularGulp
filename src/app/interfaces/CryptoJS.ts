@@ -8,4 +8,10 @@ export interface CryptoJSInterface{
     iv: string;
     textencryipted: string;
     encrypt2Value: string;
+
+    data:string;
+
+    rawData:string;
+    crypttext:string;
+
 }

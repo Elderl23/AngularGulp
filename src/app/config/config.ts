@@ -33,7 +33,10 @@ export class ClassGenerica extends CryptoJSi implements Login, ConfG{
 
     this.loading(false);
     console.log("Encriptamos");
-    //console.log(super.encryptAES("hola"));
+    console.log(super.encryptAES("hola"));
+
+    console.log("Desencriptamos");
+    console.log(super.decryptAES("YBWMi23lJ2v+6HiAi6deWDBeHZrliUKhVIWliKsnXg0="));
   }
   protected loading(parameter): void{
     this.activateLoading= parameter;
