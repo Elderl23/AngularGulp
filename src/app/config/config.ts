@@ -8,24 +8,30 @@ import { Path } from '../interfaces/path';
 import { Token } from '../interfaces/token';
 import { ConfG, Login} from '../interfaces/ConfGeneral';
 
+import { CryptoJSi } from './CryptoJS';
+
+
 export const PathService: Path = {    
     path: "http://127.0.0.1:8000/" 
 };
 
 
-export class ClassGenerica implements Login, ConfG{
+export class ClassGenerica extends CryptoJSi implements Login, ConfG{
   title;
   showMenu;
   all;save;edit;deleteC;
   activateLoading;
   constructor(){
+    super();
     this.title = 'Tystab -- Angular2';
 
-    if(this.token){
-        this.showMenu = true;
-    }
+    // if(this.token){
+    //     this.showMenu = true;
+    // }
 
     this.loading(false);
+    console.log("Encriptamos");
+    //console.log(super.encryptAES("hola"));
   }
   protected loading(parameter): void{
     this.activateLoading= parameter;

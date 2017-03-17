@@ -4,19 +4,20 @@
 
 
     <div class="container">  
-  <form id="contact" #loginForm="ngForm" (ngSubmit)="login()">
+  <form id="contact" [formGroup]="userForm" (submit)="login()">
     <h3>Login</h3>
     <h4>Ingresa tus credenciales de autenticación</h4>
 
 
     <fieldset>
-      <input type="text" placeholder="username" name="username" [(ngModel)]="model.username" #username="ngModel" ngControl="username"tabindex="1" required autofocus>
-      <span *ngIf="!username.valid && username.touched">El Nombre de Usuario es obligatorio</span>
+
+      <input type="text" placeholder="username" formControlName="username" id="username" name="username"/>
+      <control-messages [control]="userForm.controls.username"></control-messages>
     </fieldset>
 
     <fieldset>
-      <input type="password" placeholder="Password" name="password" [(ngModel)]="model.password" #password="ngModel" ngControl="password" tabindex="2" required>
-      <span *ngIf="!password.valid && password.touched">La Contraseña es obligatorio</span>
+      <input type="password" placeholder="Password" formControlName="password" id="password" />
+      <control-messages [control]="userForm.controls.password"></control-messages>
     </fieldset>
 
     <fieldset>
@@ -33,8 +34,7 @@
   </form>
 </div>
 
-  <div  *ngIf="activateLoading" class="loading">Load
-    ing</div>
+  <div  *ngIf="activateLoading" class="loading">Loading</div>
   </article> <!-- /article -->
 </section> <!-- / #main-content -->
 

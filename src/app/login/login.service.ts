@@ -27,14 +27,13 @@ export class LoginService implements Path{
   path;
 
 
-  login (username: string, password: string): Observable<Clogin> {
+  login (parameter): Observable<Clogin> {
+
+    console.log(parameter);
 
     this.path = PathService.path+'api-token-auth/';
     
-    return this.http.post(
-              this.path,
-              { username,password }
-            )
+    return this.http.post(this.path,parameter)
             .map(this.extractData)
             .catch(this.handleError);
   }

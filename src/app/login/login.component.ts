@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { ValidationService } from '../service/validator/validation.service';
+
 import { LoginService } from './login.service';
 import { ClassGenerica} from '../config/config';
 
@@ -20,33 +23,46 @@ export class LoginComponent extends ClassGenerica{
 
   MsgAlert: string;
 
+  userForm: any;
 
   constructor(
     private loginservice: LoginService,
-    private router: Router
+    private router: Router,
+    private formBuilder: FormBuilder
   ) {
     super();
+
+    this.userForm = this.formBuilder.group({
+      'username': ['', Validators.required],
+      'password': ['', [Validators.required, Validators.minLength(10)]],
+      //'email': ['', [Validators.required, ValidationService.emailValidator]],
+      //'profile': ['', [Validators.required, Validators.minLength(10)]]
+    });
+
   } 
 
 
   login() {
 
-    super.loading(true);
+    console.log(this.userForm);
 
-    this.loginservice.login(
-      this.model.username,
-      this.model.password,
-    ).subscribe(
-          data => {
-            this.router.navigate(['./dashboard']);
-          },
-          error => {
-            this.MsgAlert = error;
-            this.showAlert = true;
-            super.loading(false);
-          },
-          () => super.loading(false)
-     );
+    if (this.userForm.dirty && this.userForm.valid) {
+      // console.log(this.userForm.value);
+
+      super.loading(true);
+
+      this.loginservice.login(this.userForm.value).subscribe(
+            data => {
+              this.router.navigate(['./dashboard']);
+            },
+            error => {
+              this.MsgAlert = error;
+              this.showAlert = true;
+              super.loading(false);
+            },
+            () => super.loading(false)
+       );
+    }
   }
 
 }

@@ -1,12 +1,16 @@
 // Importaciones generales
 import { NgModule, CUSTOM_ELEMENTS_SCHEMA }      from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { FormsModule }   from '@angular/forms';
+import { FormsModule, ReactiveFormsModule}   from '@angular/forms';
 import { HttpModule, JsonpModule } from '@angular/http';
 
 
 import { MenuModule} from '../menu/menu.module';
 
+// Validator
+import { ControlMessagesComponent } from '../service/validator/control-messages.component';
+import { ValidationService } from '../service/validator/validation.service';
+// Validator
 
 // Importaciones routing app
 import { LoginRoutingModule }     from './login-routing.module';
@@ -24,15 +28,18 @@ import { LoginService } from './login.service';
     MenuModule,
     BrowserModule,
     FormsModule,
+    ReactiveFormsModule,
     HttpModule,
     JsonpModule,
     LoginRoutingModule,
   ],
   declarations: [
     LoginComponent,
+    ControlMessagesComponent,
   ],
   providers: [
-    LoginService
+    LoginService,
+    ValidationService,
   ],
   schemas: [ CUSTOM_ELEMENTS_SCHEMA ]
 })
